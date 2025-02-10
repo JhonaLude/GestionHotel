@@ -1,0 +1,14 @@
+{% extends "GestionHotel/base.html" %}
+{% block title %}Detalle de la Factura{% endblock %}
+{% block content %}
+  <h1>Factura {{ factura.id }}</h1>
+  <p><strong>Reservación:</strong> {{ factura.reservacion }}</p>
+  <p><strong>Fecha factura:</strong> {{ factura.fecha_factura }}</p>
+  <p><strong>Descripción:</strong> {{ factura.descripcion }}</p>
+  <p><strong>IVA:</strong> {{ factura.iva }}</p>
+  <p><strong>Método de pago:</strong> {{ factura.metodo_pago }}</p>
+  <a href="{% url 'factura_update' factura.pk %}">Editar</a> |
+  <a href="{% url 'factura_delete' factura.pk %}">Eliminar</a>
+  <br>
+  <a href="{% url 'factura_list' %}">Volver a la lista</a>
+{% endblock %}

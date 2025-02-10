@@ -1,0 +1,18 @@
+{% extends "GestionHotel/base.html" %}
+{% block title %}Lista de Reservaciones{% endblock %}
+{% block content %}
+  <h1>Reservaciones</h1>
+  <a href="{% url 'reservacion_create' %}">Registrar Reservación</a>
+  <ul>
+    {% for reservacion in reservaciones %}
+      <li>
+        <a href="{% url 'reservacion_detail' reservacion.pk %}">
+          Reservación {{ reservacion.id }}
+        </a>
+      </li>
+    {% empty %}
+      <li>No hay reservaciones registradas.</li>
+    {% endfor %}
+  </ul>
+  <a href="/">Inicio</a>
+{% endblock %}

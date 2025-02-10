@@ -1,0 +1,13 @@
+{% extends "GestionHotel/base.html" %}
+{% block title %}Detalle de la Reservación{% endblock %}
+{% block content %}
+  <h1>Reservación {{ reservacion.id }}</h1>
+  <p><strong>Nombre:</strong> {{ reservacion.nombre_persona }}</p>
+  <p><strong>Teléfono:</strong> {{ reservacion.telefono }}</p>
+  <p><strong>Fecha inicio:</strong> {{ reservacion.fecha_inicio }}</p>
+  <p><strong>Fecha fin:</strong> {{ reservacion.fecha_fin }}</p>
+  <a href="{% url 'reservacion_update' reservacion.pk %}">Editar</a> |
+  <a href="{% url 'reservacion_delete' reservacion.pk %}">Eliminar</a>
+  <br>
+  <a href="{% url 'reservacion_list' %}">Volver a la lista</a>
+{% endblock %}

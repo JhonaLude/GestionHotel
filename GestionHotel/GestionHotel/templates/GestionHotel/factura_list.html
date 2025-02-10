@@ -1,0 +1,18 @@
+{% extends "GestionHotel/base.html" %}
+{% block title %}Lista de Facturas{% endblock %}
+{% block content %}
+  <h1>Facturas</h1>
+  <a href="{% url 'factura_create' %}">Registrar actura</a>
+  <ul>
+    {% for factura in facturas %}
+      <li>
+        <a href="{% url 'factura_detail' factura.pk %}">
+          Factura {{ factura.id }}
+        </a>
+      </li>
+    {% empty %}
+      <li>No hay facturas registradas.</li>
+    {% endfor %}
+  </ul>
+  <a href="/">Inicio</a>
+{% endblock %}

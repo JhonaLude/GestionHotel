@@ -1,0 +1,17 @@
+{% extends "GestionHotel/base.html" %}
+{% block title %}Lista de Hoteles{% endblock %}
+{% block content %}
+  <h1>Hoteles</h1>
+  <a href="{% url 'hotel_create' %}">Registrar Hotel</a>
+  <ul>
+    {% for hotel in hoteles %}
+      <li>
+        <a href="{% url 'hotel_detail' hotel.pk %}">{{ hotel.nombre }}</a>
+      </li>
+    {% empty %}
+      <li>No hay hoteles registrados.</li>
+    {% endfor %}
+  </ul>
+  <br>
+  <a href="/">Inicio</a>
+{% endblock %}
