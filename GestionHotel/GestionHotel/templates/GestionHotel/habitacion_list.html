@@ -1,0 +1,18 @@
+{% extends "GestionHotel/base.html" %}
+{% block title %}Lista de Habitaciones{% endblock %}
+{% block content %}
+  <h1>Habitaciones</h1>
+  <a href="{% url 'habitacion_create' %}">Registrar Habitación</a>
+  <ul>
+    {% for habitacion in habitaciones %}
+      <li>
+        <a href="{% url 'habitacion_detail' habitacion.pk %}">
+          Habitación {{ habitacion.numero_habitacion }} - {{ habitacion.hotel.nombre }}
+        </a>
+      </li>
+    {% empty %}
+      <li>No hay habitaciones registradas.</li>
+    {% endfor %}
+  </ul>
+  <a href="/">Inicio</a>
+{% endblock %}

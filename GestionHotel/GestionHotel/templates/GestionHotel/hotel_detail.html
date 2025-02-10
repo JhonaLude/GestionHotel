@@ -1,0 +1,14 @@
+{% extends "GestionHotel/base.html" %}
+{% block title %}Detalle del Hotel{% endblock %}
+{% block content %}
+  <h1>{{ hotel.nombre }}</h1>
+  <p><strong>RUC:</strong> {{ hotel.ruc }}</p>
+  <p><strong>Dirección:</strong> {{ hotel.direccion }}</p>
+  <p><strong>Teléfono:</strong> {{ hotel.telefono }}</p>
+  <p><strong>Año de construcción:</strong> {{ hotel.anio_construccion }}</p>
+  <p><strong>Categoría:</strong> {{ hotel.categoria }}</p>
+  <a href="{% url 'hotel_update' hotel.pk %}">Editar</a> |
+  <a href="{% url 'hotel_delete' hotel.pk %}">Eliminar</a>
+  <br>
+  <a href="{% url 'hotel_list' %}">Volver a la lista</a>
+{% endblock %}
